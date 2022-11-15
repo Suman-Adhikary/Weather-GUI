@@ -121,12 +121,12 @@ elif (live_data['weather'][0]['main'] == 'Rain'):
     sequence = [ImageTk.PhotoImage(img) for img in ImageSequence.Iterator(Image.open('rain.gif'))]
     image = canvas.create_image(450, 300, image = sequence[0])
     animate(1)
-    canvas.create_text(330, 100, text='⛅', fill='#182747', font=('times', 50, 'bold'))
-    canvas.create_text(480, 40, text=f"{Town}, {State}", fill='#182747', font=('times', 36, 'normal'))
-    canvas.create_text(470, 100, text=f"{math.ceil(live_data['main']['temp'] - 273.15)}°C", font=('times', 50, 'bold'), fill='#182747')
+    canvas.create_text(330, 100, text='⛅', fill='white', font=('times', 50, 'bold'))
+    canvas.create_text(480, 40, text=f"{Town}, {State}", fill='white', font=('times', 36, 'normal'))
+    canvas.create_text(470, 100, text=f"{math.ceil(live_data['main']['temp'] - 273.15)}°C", font=('times', 50, 'bold'), fill='white')
     canvas.create_text(600, 100, text='Today', fill='#182747', font=('jetbrains mono', 15, 'normal'))
-    canvas.create_text(450, 160, text=f"Feel like:{math.ceil(live_data['main']['feels_like'] - 273.15)}°C  |  Pressure:{live_data['main']['pressure']} hPa  |  Humidity:{live_data['main']['humidity']}%", fill = '#182747',font = ('jetbrains mono', 15, 'normal'))
-    canvas.create_text(460, 190, text=f"Wind speed:{math.ceil(live_data['wind']['speed'] / 1000)}km/s  |  Visibility:{math.ceil(live_data['visibility'] / 1000)}km", fill = '#182747', font = ('jetbrains mono', 15,'normal'))
+    canvas.create_text(450, 160, text=f"Feel like:{math.ceil(live_data['main']['feels_like'] - 273.15)}°C  |  Pressure:{live_data['main']['pressure']} hPa  |  Humidity:{live_data['main']['humidity']}%", fill = 'white',font = ('jetbrains mono', 15, 'normal'))
+    canvas.create_text(460, 190, text=f"Wind speed:{math.ceil(live_data['wind']['speed'] / 1000)}km/s  |  Visibility:{math.ceil(live_data['visibility'] / 1000)}km", fill = 'white', font = ('jetbrains mono', 15,'normal'))
 
 elif (live_data['weather'][0]['main'] == 'Drizzle'): 
     sequence = [ImageTk.PhotoImage(img) for img in ImageSequence.Iterator(Image.open('fogg.gif'))]
@@ -248,7 +248,7 @@ for i in range(0, len(day5)):
             canvas.create_text(780, 440, text='⛅', fill='#DC5F00', font=('times', 34, 'bold'))
             canvas.create_text(780, 475, text=f"9AM : {day5[i]['Temp']}°C", fill='#DC5F00', font=('Jetbrains mono', 14, 'bold'))
         else:
-            canvas.create_text(780, 400, text=f"{parser.parse(day5[i]['date']).date()}", fill='white', font=('cascedia code', 14, 'bold'))
+            canvas.create_text(780, 400, text=f"{parser.parse(day5[i]['date']).date()}", fill='#DC5F00', font=('cascedia code', 14, 'bold'))
             canvas.create_text(780, 440, text='⛈️', fill='#DC5F00', font=('times', 34, 'bold'))
             canvas.create_text(780, 475, text=f"9AM : {day5[i]['Temp']}°C", fill='#DC5F00', font=('Jetbrains mono', 14, 'bold'))
     if (parser.parse(day5[i]['date']).time() == second_time):
@@ -257,7 +257,7 @@ for i in range(0, len(day5)):
         elif ((day5[i]['Weather_description'] == 'scattered clouds') or (day5[i]['Weather_description'] == 'few clouds') or (day5[i]['Weather_description'] == 'broken clouds')):
             canvas.create_text(780, 495, text=f"3PM : {day5[i]['Temp']}°C", fill='#DC5F00', font=('Jetbrains mono', 14, 'bold'))
         else:
-            canvas.create_text(780, 495, text=f"3PM : {day5[i]['Temp']}°C", fill='white', font=('Jetbrains mono', 14, 'bold'))
+            canvas.create_text(780, 495, text=f"3PM : {day5[i]['Temp']}°C", fill='#DC5F00', font=('Jetbrains mono', 14, 'bold'))
     if (parser.parse(day5[i]['date']).time() == third_time):
         if(day5[i]['Weather_description'] == 'clear sky'):
             canvas.create_text(780, 515, text=f"9PM : {day5[i]['Temp']}°C", fill='#DC5F00', font=('Jetbrains mono', 14, 'bold'))
